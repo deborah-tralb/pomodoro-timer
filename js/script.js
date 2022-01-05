@@ -79,3 +79,40 @@ function longTimer() {
     activeTimer = "long";
 }
 
+//Pauses or plays the timer
+
+function pauseButton() {
+    var display = document.getElementById("pause");
+
+    if (timerOn) {
+        timerOn = false;
+    } else {
+        timerOn = true;
+    }
+
+    if (display.textContent == "Pause") {
+        display.textContent = "Play";
+    } else {
+        display.textContent = "Pause";
+    }
+}
+
+//Reset the timer
+
+function resetTimer() {
+
+    if (activeTimer == "section") {
+        display.textContent = "25:00";
+    } else if (activeTimer == "short") {
+        display.textContent = "05:00";
+    } else if (activeTimer == "long") {
+        display.textContent = "15:00";
+    }
+
+    clearInterval(section);
+    clearInterval(short);
+    clearInterval(long);
+
+    activeTimer = null;
+    timerOn = false;
+}
